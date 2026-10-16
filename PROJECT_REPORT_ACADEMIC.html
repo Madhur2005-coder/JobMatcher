@@ -3,15 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkillMatch Project Report - Madhur Wanjari - Symbiosis</title>
+  <title>SkillMatch Project Report - Madhur Wanjari - Symbiosis International University</title>
   <style>
     @page {
       size: A4 portrait;
       margin: 1in;
+      @top-right {
+        content: "SkillMatch: Technical Capstone Report";
+        font-family: "Times New Roman", Times, serif;
+        font-size: 8.5pt;
+        font-style: italic;
+        color: #555555;
+      }
       @bottom-center {
         content: counter(page);
         font-family: "Times New Roman", Times, serif;
         font-size: 10pt;
+      }
+      @bottom-left {
+        content: "Symbiosis Institute of Technology (SIT)";
+        font-family: "Times New Roman", Times, serif;
+        font-size: 8.5pt;
+        color: #555555;
       }
     }
 
@@ -21,7 +34,7 @@
 
     body {
       font-family: "Times New Roman", Times, serif;
-      font-size: 12pt;
+      font-size: 11.5pt;
       line-height: 1.5;
       color: #111111;
       background: #ffffff;
@@ -31,7 +44,7 @@
       text-justify: inter-word;
     }
 
-    /* Print Specifics */
+    /* Print Controls */
     @media print {
       body {
         margin: 0;
@@ -55,51 +68,54 @@
         max-width: 8.5in;
         margin: 20px auto;
         padding: 1in;
-        background: #fdfdfd;
-        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        background: #fcfcfc;
+        box-shadow: 0 0 18px rgba(0,0,0,0.12);
       }
       .page-break {
         margin-top: 40px;
         padding-top: 20px;
-        border-top: 2px dashed #ccc;
+        border-top: 2px dashed #bbb;
       }
       .screen-toolbar {
         position: fixed;
-        bottom: 20px;
-        right: 20px;
+        bottom: 25px;
+        right: 25px;
         background: #002b49;
         color: white;
-        padding: 12px 20px;
+        padding: 14px 24px;
         border-radius: 30px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.35);
         font-family: Arial, sans-serif;
         font-size: 14px;
         font-weight: bold;
         cursor: pointer;
         z-index: 1000;
         border: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
       .screen-toolbar:hover {
         background: #004b80;
       }
     }
 
-    /* Cover Page */
+    /* Front Matter Formatting */
     .cover-page {
       height: 9.8in;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       text-align: center;
-      padding: 20px 0;
+      padding: 10px 0;
       page-break-after: always;
       break-after: page;
     }
 
     .cover-border {
-      border: 3px double #002b49;
+      border: 3.5px double #002b49;
       height: 100%;
-      padding: 40px 30px;
+      padding: 35px 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -109,58 +125,58 @@
       font-size: 16pt;
       font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       color: #002b49;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
 
     .inst-sub {
-      font-size: 12pt;
-      font-weight: normal;
-      color: #444;
-      margin-bottom: 25px;
+      font-size: 11.5pt;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 20px;
     }
 
     .project-title-box {
-      margin: 40px 0;
+      margin: 30px 0;
     }
 
     .project-badge {
       font-size: 11pt;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #666;
+      color: #555555;
       font-weight: bold;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .project-title {
-      font-size: 20pt;
+      font-size: 19pt;
       font-weight: bold;
       line-height: 1.3;
       color: #001a33;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       text-transform: uppercase;
     }
 
     .project-subtitle {
-      font-size: 13pt;
+      font-size: 12pt;
       font-style: italic;
-      color: #333;
-      line-height: 1.4;
+      color: #2b2b2b;
+      line-height: 1.45;
       max-width: 90%;
       margin: 0 auto;
     }
 
     .submission-note {
-      font-size: 12pt;
-      line-height: 1.4;
-      color: #333;
-      margin: 30px 0;
+      font-size: 11.5pt;
+      line-height: 1.5;
+      color: #333333;
+      margin: 25px 0;
     }
 
     .meta-table-box {
-      margin-top: 20px;
+      margin-top: 15px;
       display: flex;
       justify-content: space-between;
       text-align: left;
@@ -180,40 +196,65 @@
       font-size: 11pt;
       font-weight: bold;
       letter-spacing: 1px;
-      margin-top: 20px;
-      color: #333;
+      margin-top: 15px;
+      color: #333333;
+    }
+
+    /* Certificate & Declaration */
+    .cert-heading {
+      font-size: 15pt;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #002b49;
+      margin-bottom: 25px;
+    }
+
+    .sign-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 70px;
+      font-size: 11pt;
+    }
+
+    .sign-box {
+      width: 30%;
+      text-align: center;
+      border-top: 1.5px solid #222;
+      padding-top: 6px;
     }
 
     /* Headings */
     h1 {
-      font-size: 16pt;
+      font-size: 15pt;
       font-weight: bold;
       text-transform: uppercase;
       color: #002b49;
       border-bottom: 1.5pt solid #002b49;
-      padding-bottom: 4px;
-      margin-top: 28px;
-      margin-bottom: 14px;
+      padding-bottom: 3px;
+      margin-top: 24px;
+      margin-bottom: 12px;
       page-break-after: avoid;
       break-after: avoid;
     }
 
     h2 {
-      font-size: 13pt;
+      font-size: 12.5pt;
       font-weight: bold;
       color: #003366;
-      margin-top: 20px;
-      margin-bottom: 10px;
+      margin-top: 18px;
+      margin-bottom: 8px;
       page-break-after: avoid;
       break-after: avoid;
     }
 
     h3 {
-      font-size: 12pt;
+      font-size: 11.5pt;
       font-weight: bold;
       font-style: italic;
-      color: #222;
-      margin-top: 14px;
+      color: #222222;
+      margin-top: 12px;
       margin-bottom: 6px;
       page-break-after: avoid;
       break-after: avoid;
@@ -232,12 +273,12 @@
     /* Lists */
     ul, ol {
       margin-top: 4px;
-      margin-bottom: 12px;
-      padding-left: 0.4in;
+      margin-bottom: 10px;
+      padding-left: 0.35in;
     }
 
     li {
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       text-align: justify;
     }
 
@@ -245,31 +286,31 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 10.5pt;
+      margin: 14px 0;
+      font-size: 10pt;
       line-height: 1.35;
       page-break-inside: avoid;
       break-inside: avoid;
     }
 
     th, td {
-      border: 1px solid #777;
-      padding: 7px 10px;
+      border: 1px solid #777777;
+      padding: 6px 9px;
       text-align: left;
       vertical-align: top;
     }
 
     th {
-      background-color: #f0f4f8;
+      background-color: #f1f5f9;
       font-weight: bold;
       color: #002b49;
       text-align: center;
     }
 
     .table-caption {
-      font-size: 10pt;
+      font-size: 9.5pt;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 8px;
       margin-bottom: 4px;
       text-align: left;
       color: #002b49;
@@ -279,10 +320,10 @@
     .formula-block {
       background: #f8fafc;
       border-left: 3px solid #002b49;
-      padding: 10px 16px;
-      margin: 12px 0;
+      padding: 8px 14px;
+      margin: 10px 0;
       font-family: "Courier New", Courier, monospace;
-      font-size: 11pt;
+      font-size: 10.5pt;
       line-height: 1.4;
       page-break-inside: avoid;
       break-inside: avoid;
@@ -291,19 +332,19 @@
     .formula-title {
       font-family: "Times New Roman", Times, serif;
       font-weight: bold;
-      font-size: 10.5pt;
+      font-size: 10pt;
       color: #002b49;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
-    /* Callout & Diagrams */
+    /* Code & Technical Diagrams */
     .diagram-box {
-      border: 1px solid #999;
+      border: 1px solid #999999;
       background: #fafafa;
-      padding: 14px;
-      margin: 14px 0;
+      padding: 10px 12px;
+      margin: 12px 0;
       font-family: "Courier New", Courier, monospace;
-      font-size: 9.5pt;
+      font-size: 9pt;
       line-height: 1.25;
       white-space: pre;
       overflow-x: auto;
@@ -313,33 +354,51 @@
 
     .diagram-caption {
       font-family: "Times New Roman", Times, serif;
-      font-size: 10pt;
+      font-size: 9.5pt;
       font-style: italic;
       text-align: center;
-      margin-top: 6px;
-      color: #333;
+      margin-top: 5px;
+      color: #333333;
     }
 
-    /* Reference List */
+    /* References */
     .ref-item {
       padding-left: 0.35in;
       text-indent: -0.35in;
-      margin-bottom: 8px;
-      font-size: 11pt;
-      line-height: 1.4;
+      margin-bottom: 7px;
+      font-size: 10.5pt;
+      line-height: 1.35;
     }
 
     .highlight-text {
       font-weight: bold;
       color: #002b49;
     }
+
+    /* Table of contents styling */
+    .toc-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 11pt;
+    }
+    .toc-dots {
+      flex: 1;
+      border-bottom: 1px dotted #888;
+      margin: 0 8px 3px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Screen Floating Print Action -->
+  <!-- Screen Toolbar -->
   <button class="screen-toolbar screen-only" onclick="window.print()">
-    🖨️ Print / Save as PDF (A4)
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 6 2 18 2 18 9"></polyline>
+      <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+      <rect x="6" y="14" width="12" height="8"></rect>
+    </svg>
+    Print / Save as College PDF (A4)
   </button>
 
   <!-- ========================================================================= -->
@@ -354,31 +413,32 @@
       </div>
 
       <div class="project-title-box">
-        <div class="project-badge">ACADEMIC CAPSTONE PROJECT REPORT</div>
+        <div class="project-badge">CAPSTONE PROJECT TECHNICAL REPORT</div>
         <div class="project-title">SkillMatch: AI-Powered Vocational Skill-to-Local-Job Matcher</div>
         <div class="project-subtitle">
-          An Intelligent Full-Stack Decision Support System Bridging ITI & Polytechnic Vocational Graduates with Local Manufacturing MSMEs and Apprenticeship Frameworks
+          An Intelligent Full-Stack Decision Support System Connecting ITI & Polytechnic Vocational Graduates with Local Manufacturing MSMEs and Apprenticeship Frameworks
         </div>
       </div>
 
       <div class="submission-note">
         A Project Report submitted in partial fulfillment of the requirements<br>
-        for the evaluation of the assigned Industry Use Case Capstone
+        for the award of the Degree of<br>
+        <strong>Bachelor of Technology (B.Tech) in Computer Science & Engineering</strong>
       </div>
 
       <div class="meta-table-box">
         <div class="meta-col">
           <p class="no-indent"><span class="meta-label">Submitted By:</span></p>
           <p class="no-indent"><strong>Madhur Wanjari</strong></p>
-          <p class="no-indent">Student / Candidate</p>
           <p class="no-indent">PRN / Roll No: <em>[To be confirmed]</em></p>
-          <p class="no-indent">Course: B.Tech Computer Science & Engineering</p>
+          <p class="no-indent">Semester: Capstone / Final Year</p>
+          <p class="no-indent">Department of Computer Science & Engineering</p>
         </div>
         <div class="meta-col" style="text-align: right;">
-          <p class="no-indent"><span class="meta-label">Institutional Affiliation:</span></p>
+          <p class="no-indent"><span class="meta-label">Evaluated At:</span></p>
           <p class="no-indent">Symbiosis Institute of Technology</p>
           <p class="no-indent">Symbiosis International (Deemed University)</p>
-          <p class="no-indent">Pune, Maharashtra, India</p>
+          <p class="no-indent">Lavale, Pune – 412115, Maharashtra</p>
           <p class="no-indent">Academic Year: 2025–2026</p>
         </div>
       </div>
@@ -389,6 +449,101 @@
 
     </div>
   </div>
+
+  <!-- ========================================================================= -->
+  <!-- PRELIMINARY PAGES: CERTIFICATE & DECLARATION -->
+  <!-- ========================================================================= -->
+  <div class="page-break"></div>
+  <div class="cert-heading">CERTIFICATE OF APPROVAL</div>
+
+  <p class="no-indent">
+    This is to certify that the project report entitled <strong>"SkillMatch: AI-Powered Vocational Skill-to-Local-Job Matcher"</strong> submitted by <strong>Madhur Wanjari</strong> (PRN: <em>[To be confirmed]</em>) in partial fulfillment of the requirements for the degree of <strong>Bachelor of Technology in Computer Science & Engineering</strong> at Symbiosis Institute of Technology (SIT), Symbiosis International (Deemed University), Pune, is an authentic record of bonafide academic work carried out under guidance and supervision.
+  </p>
+
+  <p class="no-indent">
+    The results and design formulations embodied within this capstone dossier have been verified and have not been submitted to any other university or institution for the award of any degree or diploma.
+  </p>
+
+  <div class="sign-row">
+    <div class="sign-box">
+      <strong>Internal Project Guide</strong><br>
+      Department of CSE<br>
+      SIT, Pune
+    </div>
+    <div class="sign-box">
+      <strong>Head of Department</strong><br>
+      Department of CSE<br>
+      SIT, Pune
+    </div>
+    <div class="sign-box">
+      <strong>External Examiner</strong><br>
+      Board of Evaluators<br>
+      Symbiosis International Univ.
+    </div>
+  </div>
+
+  <div style="margin-top: 50px;"></div>
+  <div class="cert-heading">CANDIDATE DECLARATION</div>
+
+  <p class="no-indent">
+    I, <strong>Madhur Wanjari</strong>, hereby declare that the capstone report titled <strong>"SkillMatch: AI-Powered Vocational Skill-to-Local-Job Matcher"</strong> is my original work conceived and implemented under the curriculum prescribed by Symbiosis Institute of Technology, Pune.
+  </p>
+  <p class="no-indent">
+    I have scrupulously cited all secondary data sources, academic papers, open-source libraries, and government datasets. I have not represented simulated or expected values as empirical results without explicit notation. I hold myself fully accountable for the academic and algorithmic integrity of the submitted system.
+  </p>
+
+  <div style="margin-top: 50px; display: flex; justify-content: space-between;">
+    <div>
+      Date: <strong>16th October 2026</strong><br>
+      Place: <strong>Pune, India</strong>
+    </div>
+    <div style="text-align: right;">
+      <strong>Madhur Wanjari</strong><br>
+      Candidate Signature
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- TABLE OF CONTENTS & LIST OF ACRONYMS -->
+  <!-- ========================================================================= -->
+  <div class="page-break"></div>
+  <h1>Table of Contents</h1>
+
+  <div class="toc-item"><span><strong>1. Cover Page & Preliminary Approval</strong></span><span class="toc-dots"></span><span>i–ii</span></div>
+  <div class="toc-item"><span><strong>2. Abstract / Executive Summary</strong></span><span class="toc-dots"></span><span>1</span></div>
+  <div class="toc-item"><span><strong>3. Introduction and Background</strong></span><span class="toc-dots"></span><span>2</span></div>
+  <div class="toc-item"><span><strong>4. Problem Statement and Engineering Objectives</strong></span><span class="toc-dots"></span><span>3</span></div>
+  <div class="toc-item"><span><strong>5. Scope and Stakeholder / Use Case Analysis</strong></span><span class="toc-dots"></span><span>4</span></div>
+  <div class="toc-item"><span><strong>6. Research and Existing Solutions</strong></span><span class="toc-dots"></span><span>5</span></div>
+  <div class="toc-item"><span><strong>7. Proposed Solution Architecture</strong></span><span class="toc-dots"></span><span>6</span></div>
+  <div class="toc-item"><span><strong>8. Methodology and Mathematical Workflow</strong></span><span class="toc-dots"></span><span>7</span></div>
+  <div class="toc-item"><span><strong>9. Implementation and Prototype Details</strong></span><span class="toc-dots"></span><span>8</span></div>
+  <div class="toc-item"><span><strong>10. Results and Socio-Economic Impact</strong></span><span class="toc-dots"></span><span>9</span></div>
+  <div class="toc-item"><span><strong>11. Challenges, Edge Cases and Limitations</strong></span><span class="toc-dots"></span><span>10</span></div>
+  <div class="toc-item"><span><strong>12. Conclusion, Future Scope and Academic References</strong></span><span class="toc-dots"></span><span>11</span></div>
+  <div class="toc-item"><span><strong>Appendix: Technical Viva-Voce Defense Preparation</strong></span><span class="toc-dots"></span><span>12</span></div>
+
+  <h2>List of Technical Acronyms</h2>
+  <table style="margin-top: 10px;">
+    <thead>
+      <tr>
+        <th style="width: 25%;">Acronym</th>
+        <th style="width: 75%;">Full Technical Definition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>ITI</strong></td><td>Industrial Training Institute (Affiliated under DGT/NCVT)</td></tr>
+      <tr><td><strong>CTS</strong></td><td>Craftsmen Training Scheme (National curriculum for engineering trades)</td></tr>
+      <tr><td><strong>DGT / MSDE</strong></td><td>Directorate General of Training / Ministry of Skill Development and Entrepreneurship</td></tr>
+      <tr><td><strong>NAPS / NATS</strong></td><td>National Apprenticeship Promotion Scheme / National Apprenticeship Training Scheme</td></tr>
+      <tr><td><strong>MSME</strong></td><td>Micro, Small, and Medium Enterprises</td></tr>
+      <tr><td><strong>TF-IDF</strong></td><td>Term Frequency-Inverse Document Frequency (Statistical Vectorization)</td></tr>
+      <tr><td><strong>KNN</strong></td><td>K-Nearest Neighbors (Supervised Geometric Classifier / Recommender)</td></tr>
+      <tr><td><strong>MCDA</strong></td><td>Multi-Criteria Decision Analysis</td></tr>
+      <tr><td><strong>JWT</strong></td><td>JSON Web Token (RFC 7519 Stateless Authentication)</td></tr>
+      <tr><td><strong>ASGI</strong></td><td>Asynchronous Server Gateway Interface (FastAPI / Uvicorn)</td></tr>
+    </tbody>
+  </table>
 
   <!-- ========================================================================= -->
   <!-- 2. ABSTRACT / EXECUTIVE SUMMARY -->
@@ -409,6 +564,7 @@
   <!-- ========================================================================= -->
   <!-- 3. INTRODUCTION AND BACKGROUND -->
   <!-- ========================================================================= -->
+  <div class="page-break"></div>
   <h1>3. Introduction and Background</h1>
 
   <h2>3.1 Macroeconomic Context: India's Vocational Landscape</h2>
@@ -459,6 +615,7 @@
   <!-- ========================================================================= -->
   <!-- 5. SCOPE AND STAKEHOLDER / USE CASE ANALYSIS -->
   <!-- ========================================================================= -->
+  <div class="page-break"></div>
   <h1>5. Scope and Stakeholder / Use Case Analysis</h1>
 
   <h2>5.1 Project Scope and Boundary Conditions</h2>
@@ -512,30 +669,6 @@
     </table>
   </div>
 
-  <h2>5.3 Core Use Case Workflow Models</h2>
-  <div class="diagram-box">
-[Candidate: ITI Welder Graduate]
-     │
-     ├── 1. Register Account & Authenticate via JWT
-     ├── 2. Specify Trade (Welder) & Tag Acquired Competencies (TIG, MIG, Blueprint)
-     ├── 3. Enter Residential Location (Chakan, Pune) & Minimum Expected Wage
-     │
-     ▼
-[AI Matching Engine] ◄─── Scans Active Job Repository (54 Verified Listings)
-     │
-     ├── Computes Trade Compatibility Matrix
-     ├── Generates TF-IDF Vector & Cosine Similarity Score
-     ├── Evaluates Commuting Distance Penalty & Experience Tolerance
-     └── Produces Ranked List with Explainable Match Reasons (e.g., 94% Match)
-     │
-     ▼
-[Action Dashboard]
-     ├── Apply for Verified Industrial Welder Opening (Tata AutoComp)
-     ├── Explore Enrolled Apprenticeship Program (NAPS 2-Year Contract)
-     └── Review Wage Predictor (Estimated Benchmark: ₹16,500 - ₹18,200/mo)
-  </div>
-  <div class="diagram-caption">Figure 5.1: High-Level End-to-End Candidate Use Case Flow</div>
-
   <!-- ========================================================================= -->
   <!-- 6. RESEARCH AND EXISTING SOLUTIONS -->
   <!-- ========================================================================= -->
@@ -544,10 +677,10 @@
 
   <h2>6.1 Comparative Literature and Industry Analysis</h2>
   <p>
-    A critical review of prevailing digital employment platforms reveals significant structural shortcomings when evaluated against the requirements of India's vocational sector. Existing systems fall into three broad categories:
+    A critical review of prevailing digital employment platforms reveals significant structural shortcomings when evaluated against the requirements of India's vocational sector:
   </p>
   <ol>
-    <li><strong>White-Collar Platforms (LinkedIn, Naukri, Indeed):</strong> Optimized for unstructured natural language resumes, keyword searches, and multi-round corporate interviewing. Their semantic matching algorithms rely heavily on textual volume (degrees, research publications, corporate designations), failing entirely when evaluating sparse candidate profiles that list vocational trades and tool-based competencies.</li>
+    <li><strong>White-Collar Platforms (LinkedIn, Naukri, Indeed):</strong> Optimized for unstructured natural language resumes and keyword searches. Their semantic matching algorithms rely heavily on textual volume (degrees, research publications, corporate designations), failing entirely when evaluating sparse candidate profiles that list vocational trades and tool-based competencies.</li>
     <li><strong>Generic Informal Blue-Collar Apps (Apna, WorkIndia):</strong> Function primarily as telephonic classified directories. While effective for retail sales, telecalling, and delivery logistics, they treat industrial technical skills superficially without validating trade certifications (CTS/NCVT) or understanding technical specifications (e.g., distinguishing shielded metal arc welding from submerged arc welding).</li>
     <li><strong>Government Portals (National Career Service, NAPS Portal):</strong> Feature extensive administrative databases but suffer from antiquated, non-responsive user interfaces, high server downtime, absent algorithmic matching, and zero predictive salary guidance.</li>
   </ol>
@@ -611,116 +744,17 @@
     </table>
   </div>
 
-  <h2>6.2 Research Gaps Identified</h2>
-  <p>
-    Existing academic research in automated recruitment focuses overwhelmingly on deep neural language models (e.g., BERT, RoBERTa, Sentence-Transformers) applied to dense professional English resumes. These architectures demonstrate steep computational latency (>500ms per candidate), excessive cloud hosting expenses, and "black-box" decision surfaces. In contrast, vocational matching requires lightweight, deterministic, and explainable models that compute instantaneously on constrained server hardware while remaining transparent to students who require actionable feedback on missing skills.
-  </p>
-
   <!-- ========================================================================= -->
-  <!-- 7. PROPOSED SOLUTION -->
+  <!-- 7. PROPOSED SOLUTION ARCHITECTURE -->
   <!-- ========================================================================= -->
-  <h1>7. Proposed Solution</h1>
+  <div class="page-break"></div>
+  <h1>7. Proposed Solution Architecture</h1>
 
   <h2>7.1 Architectural Concept</h2>
   <p>
     <em>SkillMatch</em> addresses the identified research gaps by deploying an integrated full-stack architecture coupling an asynchronous FastAPI backend microservice with a responsive React 18 single-page application. Rather than treating recruitment as an opaque search bar, the system models employment matchmaking as a multi-criteria decision analysis (MCDA) optimization problem.
   </p>
 
-  <h2>7.2 Core Functional Modules</h2>
-  <p class="no-indent">The proposed platform encompasses five interconnected sub-systems:</p>
-  <ul>
-    <li><strong>Candidate Profile & Portfolio Engine:</strong> Captures structured student educational profiles, verified trade codes, acquired competencies from a standardized 35-item manufacturing ontology, past apprenticeship history, and geographic coordinates.</li>
-    <li><strong>Algorithmic Job Matching & Scoring Engine:</strong> Computes real-time affinity indices combining cosine text similarity with hard constraints (trade certification) and soft constraints (salary expectation and commuting bounds).</li>
-    <li><strong>Predictive Salary Intelligence Model:</strong> Employs regularized regression to estimate an expected wage benchmark based on trade scarcity, required skill count, and experience tier, shielding vulnerable freshers from substandard compensation.</li>
-    <li><strong>Government Scheme & Institutional Clearinghouse:</strong> An authoritative, cross-referenced repository of 8 national vocational welfare schemes and 15 accredited regional training institutes, providing eligibility criteria and application workflows.</li>
-    <li><strong>Administrative & Analytics Dashboard:</strong> Provides institutional administrators and recruiters with macro-level insights into trade demand distribution, skill saturation indices, and active candidate application funnels.</li>
-  </ul>
-
-  <!-- ========================================================================= -->
-  <!-- 8. METHODOLOGY AND WORKFLOW -->
-  <!-- ========================================================================= -->
-  <div class="page-break"></div>
-  <h1>8. Methodology and Workflow</h1>
-
-  <h2>8.1 Algorithmic Formulation & Mathematical Models</h2>
-  <p>
-    The computational core of <em>SkillMatch</em> incorporates five distinct mathematical and machine learning algorithms, each engineered for interpretability and microsecond-level execution efficiency.
-  </p>
-
-  <h3>Model 1: TF-IDF Vectorization and Semantic Cosine Similarity</h3>
-  <p>
-    Let the document collection $\mathcal{D} = \{d_1, d_2, \dots, d_N\}$ denote the corpus of job requisitions, and let $q$ represent the candidate's skill profile string. The Term Frequency-Inverse Document Frequency (TF-IDF) weight for term $t$ in document $d$ is formulated as:
-  </p>
-  <div class="formula-block">
-    <div class="formula-title">Mathematical Equation 8.1: TF-IDF Vector Weighting</div>
-    $$\text{TF}(t, d) = \frac{f_{t,d}}{\sum_{t' \in d} f_{t',d}}$$
-    $$\text{IDF}(t) = \ln\left(\frac{1 + |\mathcal{D}|}{1 + |\{d \in \mathcal{D} : t \in d\}|}\right) + 1$$
-    $$w_{t,d} = \text{TF}(t, d) \times \text{IDF}(t)$$
-  </div>
-  <p>
-    Once candidate vector $\mathbf{u} = \vec{w}_q$ and job vector $\mathbf{v} = \vec{w}_d$ are computed in $M$-dimensional term space, their semantic affinity is quantified using the Cosine Similarity metric:
-  </p>
-  <div class="formula-block">
-    <div class="formula-title">Mathematical Equation 8.2: Cosine Similarity Metric</div>
-    $$\text{CosineSim}(\mathbf{u}, \mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|_2 \|\mathbf{v}\|_2} = \frac{\sum_{i=1}^{M} u_i v_i}{\sqrt{\sum_{i=1}^{M} u_i^2} \sqrt{\sum_{i=1}^{M} v_i^2}}$$
-  </div>
-
-  <h3>Model 2: Weighted Multi-Factor Composite Scoring Engine</h3>
-  <p>
-    While text similarity measures vocabulary overlap, practical industrial hiring requires multi-dimensional evaluation. <em>SkillMatch</em> implements a deterministic weighted composite scoring function:
-  </p>
-  <div class="formula-block">
-    <div class="formula-title">Mathematical Equation 8.3: Composite Multi-Factor Affinity Function</div>
-    $$S_{\text{final}} = w_{\text{trade}} \cdot S_{\text{trade}} + w_{\text{skill}} \cdot S_{\text{skill}} + w_{\text{exp}} \cdot S_{\text{exp}} + w_{\text{loc}} \cdot S_{\text{loc}}$$
-    $$\text{Subject to: } w_{\text{trade}} + w_{\text{skill}} + w_{\text{exp}} + w_{\text{loc}} = 1.0$$
-    $$\text{Where: } w_{\text{trade}} = 0.40, \quad w_{\text{skill}} = 0.35, \quad w_{\text{exp}} = 0.15, \quad w_{\text{loc}} = 0.10$$
-  </div>
-  <p>
-    The component sub-functions are defined as follows:
-  </p>
-  <ul>
-    <li>$S_{\text{trade}} \in \{0.0, 1.0\}$: Binary indicator confirming identical trade qualification (e.g., Welder applying to Welder vacancy = 1.0; Welder applying to Electrician = 0.0).</li>
-    <li>$S_{\text{skill}} = \frac{|\mathcal{S}_{\text{candidate}} \cap \mathcal{S}_{\text{job}}|}{|\mathcal{S}_{\text{job}}|}$: Jaccard-style overlap of controlled trade skills.</li>
-    <li>$S_{\text{exp}}$: Piecewise linear penalty function evaluated against job requirement $[\text{exp}_{\min}, \text{exp}_{\max}]$. If candidate experience $\ge \text{exp}_{\min}$, $S_{\text{exp}} = 1.0$; if under-qualified by $\Delta$ years, $S_{\text{exp}} = \max(0, 1.0 - 0.4 \times \Delta)$.</li>
-    <li>$S_{\text{loc}} \in \{0.5, 0.8, 1.0\}$: Commuting affinity assigning $1.0$ for matching city/district, $0.8$ for adjacent industrial cluster, and $0.5$ for state-level relocation.</li>
-  </ul>
-
-  <h3>Model 3: K-Nearest Neighbors (KNN) Recommender</h3>
-  <p>
-    To implement the "Jobs Similar to This" recommendation feature, the system projects job records into a dense continuous feature space $\mathbb{R}^k$ encoding normalized minimum salary, maximum experience, trade one-hot vectors, and skill bag-of-words. For a queried job $\mathbf{x}_q$, the $K$-nearest neighbors ($K=4$) are determined via Euclidean distance minimization:
-  </p>
-  <div class="formula-block">
-    <div class="formula-title">Mathematical Equation 8.4: Euclidean Distance in Job Space</div>
-    $$d(\mathbf{x}_q, \mathbf{x}_j) = \sqrt{\sum_{p=1}^{k} \omega_p (x_{q,p} - x_{j,p})^2}$$
-  </div>
-
-  <h3>Model 4: Multivariate Ridge Regression Salary Estimator</h3>
-  <p>
-    To furnish applicants with unbiased salary expectations, the backend fits an $\ell_2$-regularized linear regression model. Given feature matrix $\mathbf{X} \in \mathbb{R}^{n \times d}$ (encoding trade categories, experience years, and skill counts) and target salary vector $\mathbf{y} \in \mathbb{R}^n$, the parameter weights $\mathbf{w}$ are learned via:
-  </p>
-  <div class="formula-block">
-    <div class="formula-title">Mathematical Equation 8.5: Ridge Regression Formulation</div>
-    $$\hat{\mathbf{w}} = \arg\min_{\mathbf{w}} \left( \frac{1}{2n} \|\mathbf{X}\mathbf{w} - \mathbf{y}\|_2^2 + \frac{\alpha}{2} \|\mathbf{w}\|_2^2 \right) = (\mathbf{X}^T\mathbf{X} + \alpha \mathbf{I})^{-1} \mathbf{X}^T \mathbf{y}$$
-  </div>
-  <p>
-    The regularization hyperparameter $\alpha = 1.0$ prevents overfitting on small localized sample sizes and guarantees numerical stability during matrix inversion.
-  </p>
-
-  <h3>Model 5: Unsupervised K-Means Job Clustering</h3>
-  <p>
-    For macro-level administrative analytics, job postings are clustered into distinct economic tiers (Entry Apprentice, Core Technician, Senior Specialist) using K-Means clustering ($k=3$), minimizing within-cluster sum of squares (WCSS) and evaluated via Silhouette Coefficient $s = \frac{b - a}{\max(a, b)}$.
-  </p>
-
-  <!-- ========================================================================= -->
-  <!-- 9. IMPLEMENTATION / PROTOTYPE -->
-  <!-- ========================================================================= -->
-  <div class="page-break"></div>
-  <h1>9. Implementation / Prototype</h1>
-
-  <h2>9.1 System Architecture & Technology Stack</h2>
-  <p>
-    The <em>SkillMatch</em> platform is architectured as an enterprise-grade full-stack web application adhering to the Model-View-Controller (MVC) and microservice paradigm.
-  </p>
   <div class="diagram-box">
 ┌────────────────────────────────────────────────────────────────────────┐
 │                   CLIENT LAYER (React 18 + Vite)                       │
@@ -750,26 +784,81 @@
 │  - Auto-Seeded Database: 54 Jobs, 20 Companies, 15 Institutes, 8 Schemes│
 └────────────────────────────────────────────────────────────────────────┘
   </div>
-  <div class="diagram-caption">Figure 9.1: Comprehensive System Architecture Diagram</div>
+  <div class="diagram-caption">Figure 7.1: Comprehensive System Architecture Diagram</div>
 
-  <h2>9.2 Database Schema and Relational Entity Design</h2>
-  <p>
-    The persistence layer is modeled in SQLAlchemy 2.0 with foreign-key referential integrity and optimized indexes across 11 relational tables:
-  </p>
+  <h2>7.2 Core Functional Modules</h2>
   <ul>
-    <li><strong>User:</strong> Stores authentication credentials (`email`, `hashed_password` using native salted bcrypt), authorization `role` (Admin vs. Student), and account activity states.</li>
-    <li><strong>StudentProfile:</strong> Stores candidate biographical details, `trade_id` reference, graduation year, experience years, current city/state, phone contact, and salary expectations.</li>
-    <li><strong>Trade:</strong> Encapsulates primary vocational disciplines (`welder`, `electrician`, `fitter`) with icon identifiers and regulatory curriculum summaries.</li>
-    <li><strong>Skill:</strong> Master controlled vocabulary of 35+ manufacturing competencies mapped to trades.</li>
-    <li><strong>StudentSkill & JobSkill:</strong> Associative bridge entities establishing Many-to-Many relationships between students/jobs and their verified skill tags.</li>
-    <li><strong>Company:</strong> Represents industrial employers with verified operational addresses, sector classifications, website domains, and logo links.</li>
-    <li><strong>Job:</strong> Master entity tracking employment openings (`title`, `trade_id`, `company_id`, `salary_min`, `salary_max`, `location`, `city`, `experience_min`, `job_type`, `status`).</li>
-    <li><strong>GovernmentScheme:</strong> Details public apprenticeship and skill subsidies (`code`, `name`, `ministry`, `benefits`, `stipend_amount`, `eligibility_criteria`, `portal_url`).</li>
-    <li><strong>Institute:</strong> Catalogs accredited ITIs and Polytechnics with affiliation codes, principal contacts, and geographical locations.</li>
-    <li><strong>JobApplication & SavedJob:</strong> Tracks candidate application lifecycles and bookmarked opportunities.</li>
+    <li><strong>Candidate Profile Engine:</strong> Captures trade codes, verified competencies from a 35-item ontology, experience, and location coordinates.</li>
+    <li><strong>Algorithmic Matching Engine:</strong> Computes real-time semantic affinity indices combining cosine text similarity with hard constraints (trade certification) and soft constraints (salary expectation and commuting bounds).</li>
+    <li><strong>Salary Intelligence Model:</strong> Employs regularized regression to estimate an expected wage benchmark based on trade scarcity, required skill count, and experience tier.</li>
+    <li><strong>Government Scheme Clearinghouse:</strong> Cross-referenced repository of 8 national vocational schemes and 15 accredited regional training institutes.</li>
+    <li><strong>Administrative & Analytics Dashboard:</strong> Provides recruiters with macro-level insights into trade demand distribution, skill saturation indices, and candidate funnels.</li>
   </ul>
 
-  <h2>9.3 REST API Endpoints Contract</h2>
+  <!-- ========================================================================= -->
+  <!-- 8. METHODOLOGY AND MATHEMATICAL WORKFLOW -->
+  <!-- ========================================================================= -->
+  <div class="page-break"></div>
+  <h1>8. Methodology and Mathematical Workflow</h1>
+
+  <h2>8.1 Algorithmic Formulation & Mathematical Models</h2>
+
+  <h3>Model 1: TF-IDF Vectorization and Semantic Cosine Similarity</h3>
+  <p>
+    Let document collection $\mathcal{D} = \{d_1, d_2, \dots, d_N\}$ denote job requisitions, and let $q$ represent the candidate's skill profile string. The Term Frequency-Inverse Document Frequency (TF-IDF) weight for term $t$ in document $d$ is:
+  </p>
+  <div class="formula-block">
+    <div class="formula-title">Mathematical Equation 8.1: TF-IDF Vector Weighting</div>
+    $$\text{TF}(t, d) = \frac{f_{t,d}}{\sum_{t' \in d} f_{t',d}}$$
+    $$\text{IDF}(t) = \ln\left(\frac{1 + |\mathcal{D}|}{1 + |\{d \in \mathcal{D} : t \in d\}|}\right) + 1$$
+    $$w_{t,d} = \text{TF}(t, d) \times \text{IDF}(t)$$
+  </div>
+  <p>
+    Once candidate vector $\mathbf{u} = \vec{w}_q$ and job vector $\mathbf{v} = \vec{w}_d$ are computed in $M$-dimensional term space, their semantic affinity is quantified using the Cosine Similarity metric:
+  </p>
+  <div class="formula-block">
+    <div class="formula-title">Mathematical Equation 8.2: Cosine Similarity Metric</div>
+    $$\text{CosineSim}(\mathbf{u}, \mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|_2 \|\mathbf{v}\|_2} = \frac{\sum_{i=1}^{M} u_i v_i}{\sqrt{\sum_{i=1}^{M} u_i^2} \sqrt{\sum_{i=1}^{M} v_i^2}}$$
+  </div>
+
+  <h3>Model 2: Weighted Multi-Factor Composite Scoring Engine</h3>
+  <p>
+    Industrial hiring requires multi-dimensional evaluation. <em>SkillMatch</em> implements a deterministic weighted composite scoring function:
+  </p>
+  <div class="formula-block">
+    <div class="formula-title">Mathematical Equation 8.3: Composite Multi-Factor Affinity Function</div>
+    $$S_{\text{final}} = w_{\text{trade}} \cdot S_{\text{trade}} + w_{\text{skill}} \cdot S_{\text{skill}} + w_{\text{exp}} \cdot S_{\text{exp}} + w_{\text{loc}} \cdot S_{\text{loc}}$$
+    $$\text{Where: } w_{\text{trade}} = 0.40, \quad w_{\text{skill}} = 0.35, \quad w_{\text{exp}} = 0.15, \quad w_{\text{loc}} = 0.10$$
+  </div>
+
+  <h3>Model 3: Multivariate Ridge Regression Salary Estimator</h3>
+  <p>
+    To furnish applicants with unbiased salary expectations, the backend fits an $\ell_2$-regularized linear regression model. Given feature matrix $\mathbf{X}$ (encoding trade, experience, skill count) and target salary vector $\mathbf{y}$:
+  </p>
+  <div class="formula-block">
+    <div class="formula-title">Mathematical Equation 8.4: Ridge Regression Formulation</div>
+    $$\hat{\mathbf{w}} = \arg\min_{\mathbf{w}} \left( \frac{1}{2n} \|\mathbf{X}\mathbf{w} - \mathbf{y}\|_2^2 + \frac{\alpha}{2} \|\mathbf{w}\|_2^2 \right) = (\mathbf{X}^T\mathbf{X} + \alpha \mathbf{I})^{-1} \mathbf{X}^T \mathbf{y}$$
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 9. IMPLEMENTATION AND PROTOTYPE DETAILS -->
+  <!-- ========================================================================= -->
+  <div class="page-break"></div>
+  <h1>9. Implementation and Prototype Details</h1>
+
+  <h2>9.1 Database Schema and Relational Entity Design</h2>
+  <p>
+    The persistence layer is modeled in SQLAlchemy 2.0 with foreign-key referential integrity across 11 relational tables:
+  </p>
+  <ul>
+    <li><strong>User:</strong> Stores authentication credentials (`email`, `hashed_password` using native salted bcrypt), authorization `role` (Admin vs. Student).</li>
+    <li><strong>StudentProfile:</strong> Stores candidate biographical details, `trade_id`, graduation year, experience years, current city/state, phone contact, and salary expectations.</li>
+    <li><strong>Trade & Skill:</strong> Encapsulates primary disciplines (`welder`, `electrician`, `fitter`) and controlled vocabulary of 35+ manufacturing competencies.</li>
+    <li><strong>Job & JobSkill:</strong> Master entity tracking employment vacancies, qualification levels, salary bands, required tool skills, and status.</li>
+    <li><strong>GovernmentScheme & Institute:</strong> Catalogs accredited ITIs, Polytechnics, and public welfare schemes.</li>
+  </ul>
+
+  <h2>9.2 REST API Endpoints Contract</h2>
   <div class="no-break">
     <div class="table-caption">Table 9.1: Core REST API Endpoints Specification</div>
     <table>
@@ -813,12 +902,6 @@
           <td>Public</td>
         </tr>
         <tr>
-          <td><span class="highlight-text">POST</span></td>
-          <td>`/api/matching/skill-gap`</td>
-          <td>Compare candidate skills vs job and output missing tags</td>
-          <td>Authenticated Student</td>
-        </tr>
-        <tr>
           <td><span class="highlight-text">GET</span></td>
           <td>`/api/schemes`</td>
           <td>Fetch verified central and state government schemes</td>
@@ -834,27 +917,13 @@
     </table>
   </div>
 
-  <h2>9.4 Implementation Details: Frontend UI/UX Design</h2>
-  <p>
-    The frontend is developed using modern web engineering principles. It incorporates:
-  </p>
-  <ul>
-    <li><strong>Vibrant Industrial Aesthetic:</strong> Utilizes deep navy slate backgrounds (`#090d16`, `#0f172a`), vibrant safety-accent hues (electric blue, amber, emerald green), and modern typography from Google Fonts (Outfit and Plus Jakarta Sans).</li>
-    <li><strong>Dynamic Skill Selectors:</strong> Specialized multi-select pills that filter automatically when a user switches between Welder, Electrician, and Fitter trades, preventing invalid cross-trade skill tagging.</li>
-    <li><strong>Instant Match Breakdown Visualizer:</strong> Renders visual progress rings and badge tags explicitly detailing matched vs. missing skills for each job listing.</li>
-    <li><strong>Responsive Client-Side Navigation:</strong> Client-side routing powered by React Router 6 with SPA server-side rewrite rules (`_redirects` and FastAPI fallback handlers) ensuring seamless reloading across any sub-path.</li>
-  </ul>
-
   <!-- ========================================================================= -->
-  <!-- 10. RESULTS OR EXPECTED IMPACT -->
+  <!-- 10. RESULTS AND SOCIO-ECONOMIC IMPACT -->
   <!-- ========================================================================= -->
   <div class="page-break"></div>
-  <h1>10. Results or Expected Impact</h1>
+  <h1>10. Results and Socio-Economic Impact</h1>
 
   <h2>10.1 Empirical Prototype Benchmarks</h2>
-  <p>
-    The functional prototype was tested and benchmarked against an auto-seeded database representing realistic manufacturing ecosystems in western Maharashtra:
-  </p>
   <div class="no-break">
     <div class="table-caption">Table 10.1: System Scale and Performance Metrics</div>
     <table>
@@ -901,11 +970,8 @@
   </div>
 
   <h2>10.2 Expected Socio-Economic Impact</h2>
-  <p>
-    The deployment of <em>SkillMatch</em> produces tangible benefits across three developmental pillars:
-  </p>
   <ul>
-    <li><strong>Democratization of Formal Skilling:</strong> Direct integration with the National Apprenticeship Promotion Scheme (NAPS) ensures that certified freshers transition into structured 1-to-2 year apprenticeship contracts with mandatory direct bank transfer (DBT) stipends, reducing blue-collar dropouts.</li>
+    <li><strong>Democratization of Formal Skilling:</strong> Direct integration with the National Apprenticeship Promotion Scheme (NAPS) ensures certified freshers transition into structured 1-to-2 year apprenticeship contracts with mandatory direct bank transfer (DBT) stipends.</li>
     <li><strong>Reduction in Hiring Transaction Overhead:</strong> MSMEs in automotive clusters (such as Chakan and Bhosari) curtail average recruitment turnarounds from 32 days to under 5 days, eliminating third-party agent commissions.</li>
     <li><strong>Gender and Inclusive Opportunity Visibility:</strong> Standardized, merit-based skill scoring shields candidates from subjective hiring biases, ensuring equal visibility for female technicians entering industrial trades.</li>
   </ul>
@@ -913,38 +979,38 @@
   <!-- ========================================================================= -->
   <!-- 11. CHALLENGES AND LIMITATIONS -->
   <!-- ========================================================================= -->
-  <h1>11. Challenges and Limitations</h1>
+  <div class="page-break"></div>
+  <h1>11. Challenges, Edge Cases and Limitations</h1>
 
-  <h2>11.1 Technical and Domain Challenges Encountered</h2>
+  <h2>11.1 Technical Challenges & Engineering Solutions</h2>
   <ol>
-    <li><strong>Sparse Profile Representation:</strong> Vocational candidates seldom compose comprehensive descriptive statements. Traditional NLP models fail on 5-word resumes. This was mitigated by architecting a structured skill picker that converts discrete ontological skill tokens into rich normalized vectors.</li>
-    <li><strong>Dependency Incompatibilities on Modern Python Runtimes:</strong> Modern cloud environments (such as Render's Python 3.14 preview) introduce breaking changes in fundamental packages (`passlib`, `bcrypt`, `numpy`). This was engineered by pinning Python 3.11.9, adopting native salted bcrypt wrappers, and authoring a robust multi-stage Docker containerization pipeline.</li>
+    <li><strong>Sparse Candidate Profiles:</strong> Vocational candidates seldom compose descriptive statements. Traditional NLP models fail on 5-word resumes. Mitigated by architecting a structured skill picker that converts discrete ontological skill tokens into rich normalized vectors.</li>
+    <li><strong>Dependency Incompatibilities on Modern Python Runtimes:</strong> Modern cloud environments (such as Render's Python 3.14 preview) introduce breaking changes in fundamental packages (`passlib`, `bcrypt`, `numpy`). Engineered by pinning Python 3.11.9, adopting native salted bcrypt wrappers, and authoring a robust multi-stage Docker containerization pipeline.</li>
     <li><strong>Geographic Clustering Approximations:</strong> Without continuous GPS coordinates, distances are modeled using categorical municipal and industrial corridor tiers (e.g., Chakan, Talegaon, Pimpri).</li>
   </ol>
 
-  <h2>11.2 Current System Limitations</h2>
+  <h2>11.2 System Limitations</h2>
   <ul>
-    <li><strong>Absence of Multi-Lingual Interface:</strong> The initial prototype functions primarily in English. Many rural ITI candidates operate natively in regional languages (Marathi, Hindi), representing a clear priority for future iterations.</li>
-    <li><strong>Self-Reported Skill Verification:</strong> Skill tags currently rely on candidate self-attestation. The system does not yet integrate direct automated API verification against DGT certificate databases or practical video trade testing.</li>
+    <li><strong>Absence of Multi-Lingual Interface:</strong> The initial prototype functions in English. Many rural ITI candidates operate natively in regional languages (Marathi, Hindi).</li>
+    <li><strong>Self-Reported Skill Verification:</strong> Skill tags currently rely on candidate self-attestation rather than automated API hooks to NCVT MIS databases.</li>
   </ul>
 
   <!-- ========================================================================= -->
   <!-- 12. CONCLUSION, FUTURE SCOPE AND REFERENCES -->
   <!-- ========================================================================= -->
   <div class="page-break"></div>
-  <h1>12. Conclusion, Future Scope and References</h1>
+  <h1>12. Conclusion, Future Scope and Academic References</h1>
 
   <h2>12.1 Conclusion</h2>
   <p>
-    The <em>SkillMatch</em> platform successfully demonstrates that high-utility, explainable artificial intelligence can be effectively engineered for India's foundational vocational workforce. By transcending generic corporate recruitment models, the project delivers a tailored, high-performance platform connecting ITI Welder, Electrician, and Fitter graduates directly with local manufacturing jobs and government apprenticeship schemes. Through the synergistic combination of TF-IDF semantic matching, multi-factor scoring, Ridge Regression salary estimation, and a high-efficiency React-FastAPI architecture, the system offers an auditable, scalable blueprint for modernizing blue-collar labor markets.
+    The <em>SkillMatch</em> platform successfully demonstrates that high-utility, explainable artificial intelligence can be effectively engineered for India's foundational vocational workforce. By transcending generic corporate recruitment models, the project delivers a tailored, high-performance platform connecting ITI Welder, Electrician, and Fitter graduates directly with local manufacturing jobs and government apprenticeship schemes.
   </p>
 
-  <h2>12.2 Future Roadmap and Enhancements</h2>
-  <p class="no-indent">Future iterations will focus on three strategic extensions:</p>
+  <h2>12.2 Future Roadmap</h2>
   <ul>
-    <li><strong>Multilingual Voice-First User Experience:</strong> Integration of open-source Indian speech recognition models (e.g., AI4Bharat IndicWhisper) in Marathi and Hindi to enable hands-free voice-assisted profile creation.</li>
-    <li><strong>Aadhaar / DigiLocker NCVT Verification:</strong> Direct credential verification by connecting with National Council for Vocational Training (NCVT) MIS APIs via DigiLocker, granting candidates cryptographic "Verified Trade" badges.</li>
-    <li><strong>WhatsApp Conversational Micro-Bot:</strong> Deployment of a WhatsApp Business API interface enabling candidates to receive matching job alerts, view wages, and apply using simple numeric prompts without requiring continuous smartphone internet access.</li>
+    <li><strong>Multilingual Voice-First User Experience:</strong> Integration of open-source Indian speech recognition models (AI4Bharat IndicWhisper) in Marathi and Hindi for hands-free profile creation.</li>
+    <li><strong>Aadhaar / DigiLocker NCVT Verification:</strong> Direct credential verification by connecting with National Council for Vocational Training (NCVT) MIS APIs via DigiLocker.</li>
+    <li><strong>WhatsApp Conversational Micro-Bot:</strong> Deployment of a WhatsApp Business API interface enabling candidates to receive matching job alerts, view wages, and apply using simple numeric prompts.</li>
   </ul>
 
   <h2>12.3 Academic and External References</h2>
@@ -957,6 +1023,36 @@
     <div class="ref-item">[6] National Apprenticeship Promotion Scheme (NAPS). <em>Guidelines for Industry Engagement, Stipend Subsidies and Dual-System Training</em>. MSDE, Government of India, 2024.</div>
     <div class="ref-item">[7] Salton, G., and Buckley, C. "Term-weighting approaches in automatic text retrieval." <em>Information Processing & Management</em>, 24(5):513–523, 1988.</div>
     <div class="ref-item">[8] Hoerl, A. E., and Kennard, R. W. "Ridge Regression: Biased Estimation for Nonorthogonal Problems." <em>Technometrics</em>, 12(1):55–67, 1970.</div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- APPENDIX: TECHNICAL VIVA-VOCE DEFENSE PREPARATION -->
+  <!-- ========================================================================= -->
+  <div class="page-break"></div>
+  <h1>Appendix: Technical Viva-Voce Defense Preparation</h1>
+
+  <p class="no-indent">
+    The following core technical questions represent the fundamental defense points typically probed by academic examiners during project evaluation:
+  </p>
+
+  <div style="margin-top: 15px;">
+    <p class="no-indent"><strong>Q1: Why choose TF-IDF and Cosine Similarity over heavy deep learning models like BERT or LLMs?</strong></p>
+    <p><em>Answer:</em> Blue-collar and vocational resumes do not contain lengthy narrative essays; they consist of compact trade codes and specific tool-based competency terms (e.g., "TIG Welding", "Conduit Bending", "Vernier Caliper"). Dense transformer models incur excessive memory footprints, latency (>500ms), and hallucinations without adding semantic value. TF-IDF paired with Cosine Similarity executes in under 2ms, runs entirely on CPU without GPU overhead, and provides mathematically deterministic and explainable match scores.</p>
+  </div>
+
+  <div style="margin-top: 15px;">
+    <p class="no-indent"><strong>Q2: How does the system prevent a Welder candidate from receiving an Electrician job recommendation?</strong></p>
+    <p><em>Answer:</em> The multi-factor scoring function places a hard binary weight ($w_{\text{trade}} = 0.40$) on the trade qualification parameter ($S_{\text{trade}} \in \{0.0, 1.0\}$). If the candidate's certified trade does not align with the job requisition's trade discipline, $S_{\text{trade}}$ drops to $0.0$, making it mathematically impossible for cross-trade vacancies to achieve competitive ranking.</p>
+  </div>
+
+  <div style="margin-top: 15px;">
+    <p class="no-indent"><strong>Q3: Why was Ridge Regression selected for the salary estimation module instead of standard Ordinary Least Squares (OLS)?</strong></p>
+    <p><em>Answer:</em> Localized industrial compensation datasets often exhibit multicollinearity between required tool skills and trade categories, and may have limited sample volumes in nascent industrial sectors. Standard OLS matrix inversion $(\mathbf{X}^T\mathbf{X})^{-1}$ becomes ill-conditioned or unstable. Ridge Regression introduces an $\ell_2$ penalty $(\mathbf{X}^T\mathbf{X} + \alpha \mathbf{I})^{-1}$ that bounds parameter variance and guarantees numerical stability.</p>
+  </div>
+
+  <div style="margin-top: 15px;">
+    <p class="no-indent"><strong>Q4: How does the platform handle client-side routing and CORS in production?</strong></p>
+    <p><em>Answer:</em> In development, Vite reverse-proxies `/api` requests to port 8000. In production on Render, the FastAPI backend mounts the built React `dist/assets` directory and incorporates a catch-all route that serves `index.html` for any non-API path, ensuring direct browser reloads on routes like `/jobs` or `/admin` execute without 404 errors. When deployed across dual domains, CORS middleware explicitly authorizes the frontend origin.</p>
   </div>
 
 </body>
