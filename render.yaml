@@ -1,15 +1,31 @@
 services:
   # ============================================================================
-  # OPTION 1 (Recommended): Unified Full-Stack Service
-  # Free tier friendly: Runs both React frontend and FastAPI backend on 1 service!
+  # OPTION A: Full-Stack Docker (Recommended)
+  # Builds both React frontend and Python FastAPI in 1 free web service!
   # ============================================================================
   - type: web
     name: skillmatch-app
+    runtime: docker
+    plan: free
+    region: oregon
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:///./job_matcher.db
+    healthCheckPath: /api/health
+
+  # ============================================================================
+  # OPTION B: Python Backend API Only
+  # Use this if deploying frontend as a separate Static Site below
+  # ============================================================================
+  - type: web
+    name: skillmatch-api
     runtime: python
     plan: free
     region: oregon
-    buildCommand: bash build.sh
-    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
@@ -18,3 +34,15 @@ services:
       - key: DATABASE_URL
         value: sqlite:///./job_matcher.db
     healthCheckPath: /api/health
+
+  # ============================================================================
+  # OPTION B: Frontend Static Site (100% Free on Render)
+  # ============================================================================
+  - type: static
+    name: skillmatch-web
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
